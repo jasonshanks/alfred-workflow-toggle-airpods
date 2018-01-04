@@ -8,7 +8,7 @@ This Alfred workflow runs an osascript that toggles the connectivity of your Air
 The original script credit goes to Josh Johnson for his AppleScript that either connects or errors out responsibly. His excellent instructions and suggestions for other methods of triggering it can be found over on [Medium](https://medium.com/@secondfret/how-to-connect-your-airpods-to-your-mac-with-a-keyboard-shortcut-9d72e786993b).
 
 ## Extended features
-I have extended the original functionality with:
+The original functionality has been extended with:
 
 * a check for the current Connect/Disconnect status, which then toggles the connectivity based on this state.
 * System notifications which provide further confirmation of connection status.
@@ -25,7 +25,7 @@ If you're not an Alfred user you can still launch the Applescript app through ma
 Assuming you have Alfred all ready to go:
 1. Double-click the workflow you downloaded above to install in Alfred.
 2. Review the workflow's Keyword and  Hotkey and customise to your liking. I use a Hyper Key trigger <sup>[1](#fn1)</sup>	
-3. Double-click the /usr/bin/osascript and customise Line 11 with the actual name of your AirPods.
+3. Double-click the /usr/bin/osascript and customise Line 11 with the *actual name* of your AirPods. As Josh pointed out, syntax is critical here and the default name Apple assigns to all AirPods includes a smart right quote **&rsquo;** after your name. All you need to know is to type it with  `OPTION+SHIFT+]`.
 
 ![screenshot indicating where to edit the osascript][osascript]
 
