@@ -7,7 +7,12 @@ This Alfred workflow runs an osascript that toggles the connectivity of your Air
 
 The original script credit goes to Josh Johnson for his AppleScript that either connects or errors out responsibly. His excellent instructions and suggestions for other methods of triggering it can be found over on [Medium](https://medium.com/@secondfret/how-to-connect-your-airpods-to-your-mac-with-a-keyboard-shortcut-9d72e786993b).
 
-I extended the functionality with a check for the current Connect/Disconnect status, which then toggles the connectivity based on this state. I then fully incorporated the applescript into an osascript embedded within an Alfred Workflow instead of launching it externally.
+## Extended features
+I have extended the original functionality with:
+
+* a check for the current Connect/Disconnect status, which then toggles the connectivity based on this state.
+* System notifications which provide further confirmation of connection status.
+* The applescript has been fully incorporated into an osascript embedded within an Alfred Workflow (instead of launching it externally).
 
 If you're not an Alfred user you can still launch the Applescript app through many other methods such as adding it to your Dock, using [Apple's Spotlight](https://support.apple.com/en-us/HT204014)  or support some other great indie developers with: [QuickSilver](https://qsapp.com), [BetterTouchTool](https://www.boastr.net), [LaunchBar](https://www.obdev.at/products/launchbar/index.html),  [Keyboard Maestro](https://www.keyboardmaestro.com/main/).  Just [download](https://github.com/jasonshanks/alfred-workflow-toggle-airpods/archive/master.zip) this entire Github package and unzip.
 
