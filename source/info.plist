@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>connections</key>
+	<dict>
+		<key>6315B5AB-4849-4A95-B3A6-453BB1F19E49</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0C1FA15D-A40B-49B5-9DB1-0663F356EDD4</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>FBE2612B-C971-466D-817C-6B08ABD8E8A7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0C1FA15D-A40B-49B5-9DB1-0663F356EDD4</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Adapted by Jason Shanks. Original script credit to Josh Johnson</string>
+	<key>description</key>
+	<string>Launch an AppleScript app to connect/disconnect your AirPods</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Toggle AirPods</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>airpods</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Toggle AirPods connectivity</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>FBE2612B-C971-466D-817C-6B08ABD8E8A7</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>activate application "SystemUIServer"tell application "System Events"	tell process "SystemUIServer"		-- Working CONNECT/DISCONNECT Script.  Goes through the following:		-- Clicks on Bluetooth Menu (OSX Top Menu Bar)		--    =&gt; Clicks on AirPodsName Item [NOTE: you must change AirPodsName on Line 11 to your AirPods name!]		--      =&gt; Clicks on Connect or Disconnect Item depending on current connection status		set btMenu to (menu bar item 1 of menu bar 1 whose description contains "bluetooth")		tell btMenu			click			tell (menu item "AirPodsName" of menu 1)				click				if exists menu item "Connect" of menu 1 then					click menu item "Connect" of menu 1					display notification "Connecting AirPods..." with title "Toggle AirPods"				else if exists menu item "Disconnect" of menu 1 then					click menu item "Disconnect" of menu 1					display notification "Disconnecting AirPods..." with title "Toggle AirPods"				else					click btMenu -- Close main BT drop down if Connect wasn't present					return "Airpods were not found, try manually pairing them again!"				end if			end tell		end tell	end tellend tell
+
+-- Script by Jason Shanks of http://FirstWorldAppleProblems.com
+-- Adapted from an original script by Josh Johnson</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>0C1FA15D-A40B-49B5-9DB1-0663F356EDD4</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>6315B5AB-4849-4A95-B3A6-453BB1F19E49</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>0C1FA15D-A40B-49B5-9DB1-0663F356EDD4</key>
+		<dict>
+			<key>xpos</key>
+			<integer>380</integer>
+			<key>ypos</key>
+			<integer>110</integer>
+		</dict>
+		<key>6315B5AB-4849-4A95-B3A6-453BB1F19E49</key>
+		<dict>
+			<key>xpos</key>
+			<integer>170</integer>
+			<key>ypos</key>
+			<integer>160</integer>
+		</dict>
+		<key>FBE2612B-C971-466D-817C-6B08ABD8E8A7</key>
+		<dict>
+			<key>xpos</key>
+			<integer>170</integer>
+			<key>ypos</key>
+			<integer>40</integer>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>https://github.com/jasonshanks/alfred-workflow-toggle-airpods</string>
+</dict>
+</plist>
