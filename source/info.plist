@@ -4,13 +4,15 @@
 <dict>
 	<key>bundleid</key>
 	<string></string>
+	<key>category</key>
+	<string>System</string>
 	<key>connections</key>
 	<dict>
-		<key>6315B5AB-4849-4A95-B3A6-453BB1F19E49</key>
+		<key>155EC000-A59C-43F0-A931-BC62FEEDCB2C</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>0C1FA15D-A40B-49B5-9DB1-0663F356EDD4</string>
+				<string>26664A1F-5B96-4844-8521-F9A28A81A653</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -19,11 +21,50 @@
 				<false/>
 			</dict>
 		</array>
-		<key>FBE2612B-C971-466D-817C-6B08ABD8E8A7</key>
+		<key>26664A1F-5B96-4844-8521-F9A28A81A653</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>0C1FA15D-A40B-49B5-9DB1-0663F356EDD4</string>
+				<string>A76CECF5-8EF2-4DC1-B7F1-D8441978DA7E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>678EFDC8-5E2D-49BE-A7FE-25FB47E2F8DE</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>296C8065-0892-4B81-937B-F3271225BCCF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>7698665D-2B69-49BF-AD93-0C7B13F35A47</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>26664A1F-5B96-4844-8521-F9A28A81A653</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F8B364CD-30A3-43BA-8DCC-FE9755FB214D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>678EFDC8-5E2D-49BE-A7FE-25FB47E2F8DE</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -34,7 +75,7 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>Adapted by Jason Shanks. Original script credit to Josh Johnson</string>
+	<string>Adapted and improved by Jason Shanks &amp; novelview9. Original script credit to Josh Johnson</string>
 	<key>description</key>
 	<string>Launch an AppleScript app to connect/disconnect your AirPods</string>
 	<key>disabled</key>
@@ -60,7 +101,28 @@
 			<key>type</key>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>FBE2612B-C971-466D-817C-6B08ABD8E8A7</string>
+			<string>155EC000-A59C-43F0-A931-BC62FEEDCB2C</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Complete</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>A76CECF5-8EF2-4DC1-B7F1-D8441978DA7E</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -72,21 +134,18 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>activate application "SystemUIServer"tell application "System Events"	tell process "SystemUIServer"		-- Working CONNECT/DISCONNECT Script.  Goes through the following:		-- Clicks on Bluetooth Menu (OSX Top Menu Bar)		--    =&gt; Clicks on AirPodsName Item [NOTE: you must change AirPodsName on Line 11 to your AirPods name!]		--      =&gt; Clicks on Connect or Disconnect Item depending on current connection status		set btMenu to (menu bar item 1 of menu bar 1 whose description contains "bluetooth")		tell btMenu			click			tell (menu item "AirPodsName" of menu 1)				click				if exists menu item "Connect" of menu 1 then					click menu item "Connect" of menu 1					display notification "Connecting AirPods..." with title "Toggle AirPods"				else if exists menu item "Disconnect" of menu 1 then					click menu item "Disconnect" of menu 1					display notification "Disconnecting AirPods..." with title "Toggle AirPods"				else					click btMenu -- Close main BT drop down if Connect wasn't present					return "Airpods were not found, try manually pairing them again!"				end if			end tell		end tell	end tellend tell
-
--- Script by Jason Shanks of http://FirstWorldAppleProblems.com
--- Adapted from an original script by Josh Johnson</string>
+				<string>osascript connection.scpt</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
-				<integer>6</integer>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>0C1FA15D-A40B-49B5-9DB1-0663F356EDD4</string>
+			<string>26664A1F-5B96-4844-8521-F9A28A81A653</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -101,6 +160,10 @@
 				<false/>
 				<key>focusedappvariablename</key>
 				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -111,37 +174,165 @@
 			<key>type</key>
 			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
-			<string>6315B5AB-4849-4A95-B3A6-453BB1F19E49</string>
+			<string>7698665D-2B69-49BF-AD93-0C7B13F35A47</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python set_device.py {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>678EFDC8-5E2D-49BE-A7FE-25FB47E2F8DE</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>setairpods</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>python load_device.py {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>setairpods</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>F8B364CD-30A3-43BA-8DCC-FE9755FB214D</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>set complete</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>296C8065-0892-4B81-937B-F3271225BCCF</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>This workflow toggles the connectivity of your AirPods (or other bluetooth audio device) on your Mac. It includes two simple commands:
+
+* setairpods – assign which of your bluetooth audio devices to connect with next time the script is run.
+* airpods - connect/disconnect</string>
 	<key>uidata</key>
 	<dict>
-		<key>0C1FA15D-A40B-49B5-9DB1-0663F356EDD4</key>
+		<key>155EC000-A59C-43F0-A931-BC62FEEDCB2C</key>
 		<dict>
 			<key>xpos</key>
-			<integer>380</integer>
+			<integer>190</integer>
 			<key>ypos</key>
-			<integer>110</integer>
+			<integer>120</integer>
 		</dict>
-		<key>6315B5AB-4849-4A95-B3A6-453BB1F19E49</key>
+		<key>26664A1F-5B96-4844-8521-F9A28A81A653</key>
 		<dict>
 			<key>xpos</key>
-			<integer>170</integer>
+			<integer>365</integer>
 			<key>ypos</key>
-			<integer>160</integer>
+			<integer>120</integer>
 		</dict>
-		<key>FBE2612B-C971-466D-817C-6B08ABD8E8A7</key>
+		<key>296C8065-0892-4B81-937B-F3271225BCCF</key>
 		<dict>
 			<key>xpos</key>
-			<integer>170</integer>
+			<integer>530</integer>
 			<key>ypos</key>
-			<integer>40</integer>
+			<integer>370</integer>
+		</dict>
+		<key>678EFDC8-5E2D-49BE-A7FE-25FB47E2F8DE</key>
+		<dict>
+			<key>xpos</key>
+			<integer>360</integer>
+			<key>ypos</key>
+			<integer>370</integer>
+		</dict>
+		<key>7698665D-2B69-49BF-AD93-0C7B13F35A47</key>
+		<dict>
+			<key>xpos</key>
+			<integer>190</integer>
+			<key>ypos</key>
+			<integer>230</integer>
+		</dict>
+		<key>A76CECF5-8EF2-4DC1-B7F1-D8441978DA7E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>540</integer>
+			<key>ypos</key>
+			<integer>120</integer>
+		</dict>
+		<key>F8B364CD-30A3-43BA-8DCC-FE9755FB214D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>190</integer>
+			<key>ypos</key>
+			<integer>370</integer>
 		</dict>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/jasonshanks/alfred-workflow-toggle-airpods</string>
 </dict>
