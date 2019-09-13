@@ -25,13 +25,19 @@ If you're not an Alfred user you can still launch the Applescript app through ma
 Assuming you have Alfred all ready to go:
 1. Double-click the workflow you downloaded above to install in Alfred.
 2. Review the workflow's Keyword and  Hotkey and customise to your liking. I use a Hyper Key trigger <sup>[1](#fn1)</sup>	
-3. Double-click the /usr/bin/osascript and customise Line 11 with the *actual name* of your AirPods. As Josh pointed out, syntax is critical here and the default name Apple assigns to all AirPods includes a smart right quote **&rsquo;** after your name. All you need to know is to type it with  `OPTION+SHIFT+]`.
+3. run setairpods and select your device
 
-![screenshot indicating where to edit the osascript][osascript]
+![image](https://media.giphy.com/media/tIFQAVrlFKusFsHeas/giphy.gif)
+
+4. All you need to know is to type it with  `OPTION+SHIFT+]`.
 
 ## Commands
-- Keyword: `toggle airpods`
-- Hotkey: `CONTROL+OPTION+COMMAND+SHIFT+P` or `CAPS LOCK+P` (if you have  a Hyper Key).
+- setting
+  - Keyword: `setairpods`
+
+- run
+  - Keyword: `airpods`
+  - Hotkey: `CONTROL+OPTION+COMMAND+SHIFT+P` or `CAPS LOCK+P` (if you have  a Hyper Key).
 
 ## Contributors
 - [@jasonshanks](https://github.com/jasonshanks)
