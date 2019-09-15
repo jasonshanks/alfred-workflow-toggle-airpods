@@ -45,17 +45,21 @@ Assuming you meet the requirements above:
 ## Contributors
 - [@jasonshanks](https://github.com/jasonshanks)
 - [novelview9](https://github.com/novelview9)
+- [Raphus-cucullatus](https://github.com/Raphus-cucullatus)
 - [@secondfret](https://github.com/secondfret)
 
 <a name="fn1">1</a>: All you need to do is install  [Karabiner](https://pqrs.org/osx/karabiner/index.html), a free keyboard customiser then enable the Complex Modification example called: `Change caps_lock to command+control+option+shift`. Inspired by [Brett Terpstra's Hyper Key idea](http://brettterpstra.com/2012/12/08/a-useful-caps-lock-key/).
 
 ## Release notes
-* 2019-09-13
+* v1.3 2019-09-15
+	- keep current window focus on Setairpods script as well
+	- added localisation in Mandarin [Raphus-cucullatus]
+* v1.2 2019-09-13
 	- Removed now unnecessary script line that stole focus away from the previous window. [Thanks to Raphus-cucullatus!]
 	- Relocated animated gif instruction with repo.
 	- Recompiled the original applescript for 64bit in case other than Alfred users still want to delve in to adapting it.
-* 2018-12-28 Script restructuring, replaced manual device naming in script with dedicated *setairpods* command. Korean localisation. Anymore localisations most welcome! [novelview9]
-* 2018-01-05 Initial release
+* v1.1 2018-12-28 Script restructuring, replaced manual device naming in script with dedicated *setairpods* command. Korean localisation. Anymore localisations most welcome! [novelview9]
+* v1.0 2018-01-05 Initial release
 
 ## Todo
 * rename more generically as it really works for any bluetooth audio device now.
