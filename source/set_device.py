@@ -11,12 +11,11 @@ if userLocale is "en_US" then
 else if userLocale is "ko-Kore_KR" then
     set user_connection to "연결"
     set user_disconnection to "연결 해제"
-end if
 
 else if userLocale is "zh_CN" then
     set user_connection to "连接"
     set user_disconnection to "断开连接"
- end if
+end if
 
 set device_name to "your_device_name"
 
