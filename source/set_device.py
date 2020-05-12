@@ -5,8 +5,8 @@ from workflow import Workflow
 connect_script_template = """
 set userLocale to user locale of (system info)
 if userLocale is "en_US" then
-    set user_connection to "Connection"
-    set user_disconnection to "Disconnection"
+    set user_connection to "Connect"
+    set user_disconnection to "Disconnect"
 
 else if userLocale is "ko-Kore_KR" then
     set user_connection to "연결"
@@ -15,6 +15,10 @@ else if userLocale is "ko-Kore_KR" then
 else if userLocale is "zh_CN" then
     set user_connection to "连接"
     set user_disconnection to "断开连接"
+
+else
+    set user_connection to "Connect"
+    set user_disconnection to "Disconnect"
 end if
 
 set device_name to "your_device_name"
